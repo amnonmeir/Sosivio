@@ -1,5 +1,7 @@
 ## Composer Sosivio application
 
+Prerequisite: Ubuntu 18.04 / Docker / docker-compose
+
 Project structure:
 ```
 .
@@ -38,7 +40,7 @@ services:
 The compose file defines an application with two services `frontend` and `backend`.
 When deploying the application, docker-compose map TCP ports 8888 and 9999 for the frontend and backend services containers, to the same port of the host as specified in the .env file.
 Make sure ports 8888 and 9999 on the host is not already in use.
-The .env also define the number of threads the backend can run. 
+The .env also define the number of threads the backend can run.
 
 ## Deploy with docker-compose
 
