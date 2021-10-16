@@ -1,6 +1,6 @@
 ## Composer Sosivio application
 
-Prerequisite: Ubuntu 18.04 / Docker / docker-compose
+Prerequisite: Ubuntu 18.04 or Windows / Docker / docker-compose
 
 Project structure:
 ```
