@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  frontend:
+    build: frontend
+    env_file:
+     - .env
+    network_mode: "host"
+    depends_on:
+      - backend
+  backend:
+    build: backend
+    env_file:
+     - .env
+    network_mode: "host"
