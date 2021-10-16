@@ -36,9 +36,13 @@ func encrypt(split []string, number_of_threads int) string { //Change sting arra
 	return base64.StdEncoding.EncodeToString(([]byte(result)))
 }
 func main() {
-        var local_port string
+	var local_port string
 
-        local_port = os.Getenv("BACKEND_PORT")
+	local_port = os.Getenv("BACKEND_PORT")
+	if local_port == "" {
+		fmt.Println("NO PORT DEFINED")
+		os.Exit(2)
+	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/" {
@@ -56,13 +60,13 @@ func main() {
 			number_of_threads, err := strconv.Atoi(os.Getenv("THREADS"))
 			if err != nil {
 				// handle error
-				fmt.Println(err)
-				os.Exit(2)
+				number_of_threads = 4
 			}
 			encrypt := encrypt(split, number_of_threads) //send the splited string to encryption
 			fmt.Fprintf(w, encrypt)                      //return the encrypted string to the user
 		}
 	})
-       http.ListenAndServe(":" + local_port, nil)
+	http.ListenAndServe(":"+local_port, nil)
 
 }
+
