@@ -2,6 +2,8 @@
 
 Prerequisite: Ubuntu 18.04 or Windows / Docker / docker-compose
 
+*** Note: The project assumes both container (microservices) run on the localhost.
+
 Project structure:
 ```
 .
